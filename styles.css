@@ -1,0 +1,185 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-size: 62.5%;
+}
+body {
+	overflow: hidden;
+	margin: 0;
+	height: 100vh;
+}
+#background-container {
+	z-index: -10;
+	position: absolute;
+	left: -3840px;
+	background-size: contain;
+	background-repeat: repeat-x;
+	background-image: url(./city.jpg);
+	height: 1080px;
+	width: 5760px;
+	animation: backgroundAnim linear 10s infinite;
+}
+@keyframes backgroundAnim {
+	0% {
+		transform: translate3d(0, 0, 0);
+	}
+	100% {
+		transform: translate3d(1920px, 0, 0); /* The image width */
+	}
+}
+#text {
+	position: absolute;
+	left: 50%;
+	top: 2rem;
+	transform: translateX(-50%);
+	font-size: 7rem;
+}
+#helicopter {
+	width: 800px;
+	height: 600px;
+	perspective: 100rem;
+	position: absolute;
+	bottom: 0;
+	right: 20rem;
+}
+#helicopter-blade {
+	width: 40rem;
+	height: 1.5rem;
+	position: absolute;
+	top: 7.25rem;
+	left: 0.5rem;
+	background-color: #000;
+	transform: rotateX(90deg);
+	transform-style: preserve-3d;
+	animation: bladeAnimation 0.15s linear infinite;
+}
+@keyframes bladeAnimation {
+	0% {
+		transform: rotateX(90deg) rotateZ(0deg);
+	}
+	50% {
+		transform: rotateX(90deg) rotateZ(90deg);
+	}
+
+	100% {
+		transform: rotateX(90deg) rotateZ(180deg);
+	}
+}
+#main-rotor {
+	background-color: rgb(251, 255, 0);
+	width: 4rem;
+	height: 100%;
+	position: absolute;
+	left: 50%;
+	transform-style: preserve-3d;
+	transform: translateX(-50%) rotateX(-90deg);
+}
+
+#main-rotor::after {
+	content: "";
+	background-color: rgb(255, 60, 0);
+	width: 100%;
+	height: 100%;
+	position: absolute;
+
+	transform: rotateY(80deg);
+}
+
+#helicopter-mast {
+	width: 1rem;
+	height: 1.5rem;
+	position: absolute;
+	top: 8.5rem;
+	left: 20rem;
+	background-color: #000;
+	z-index: -1;
+}
+#helicopter-head {
+	z-index: 2;
+	position: absolute;
+	width: 20rem;
+	height: 10rem;
+	top: 10rem;
+	left: 10rem;
+	background-color: #000;
+	border-radius: 50% 40% 40% 40%;
+}
+#helicopter-head::before {
+	content: "";
+	width: 10rem;
+	height: 5rem;
+	position: absolute;
+	background-color: rgb(250, 245, 159);
+	border-radius: 100% 0 20% 0;
+}
+.landing-skid {
+	position: absolute;
+	width: 25rem;
+	height: 10rem;
+	border-bottom: 1rem solid #000;
+	border-left: 1rem solid transparent;
+	border-right: 1rem solid transparent;
+	border-radius: 0 0 2.5rem 5rem;
+}
+.landing-skid::before {
+	content: "";
+	width: 1rem;
+	height: 4rem;
+	left: 8rem;
+	top: 5rem;
+	background-color: #000;
+	position: absolute;
+}
+.landing-skid::after {
+	content: "";
+	width: 1rem;
+	height: 4rem;
+	left: 16rem;
+	top: 5rem;
+	background-color: #000;
+	position: absolute;
+}
+#landing-skid-1 {
+	left: 6rem;
+	top: 14rem;
+}
+#landing-skid-2 {
+	left: 7rem;
+	top: 12rem;
+}
+#tail-cone {
+	position: absolute;
+	width: 20rem;
+	height: 1.5rem;
+	top: 15rem;
+	left: 29rem;
+	background-color: #000;
+	border-radius: 0 40% 40% 0;
+}
+#tail-fin {
+	position: absolute;
+	width: 1.5rem;
+	height: 5rem;
+	top: 13.3rem;
+	left: 48rem;
+	background-color: #000;
+	border-radius: 100% 0 0 100%;
+}
+#tail-rotor {
+	position: absolute;
+	width: 1rem;
+	height: 5rem;
+	top: 13.3rem;
+	left: 49.5rem;
+	background-color: #000;
+	animation: rotorAnim 0.2s linear infinite;
+}
+@keyframes rotorAnim {
+	from {
+		transform: rotateX(0);
+	}
+	to {
+		transform: rotateX(180deg);
+	}
+}
